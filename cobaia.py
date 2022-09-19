@@ -11,6 +11,7 @@ import time
 
 def tota():
         lista_cerveja_lata_Bistek = []
+        print('1 etapa')
 
         response = requests.get('https://loja10.bistek.com.br/catalogsearch/result/?q=monster')
 
@@ -24,37 +25,36 @@ def tota():
         for cerveja_Bistek in cervejas_Bistek:
               
                 produto_Bistek = cerveja_Bistek.find('strong', attrs={'class':'product name product-item-name'})
+                valo_normal_bistek = cerveja_Bistek.find('span',attrs={'class':"price"})
                 valor_Bistek = cerveja_Bistek.find('span',attrs={'class':"special-price"})
-                valor_amigo_bistek = cerveja_Bistek.find('span',attrs={'class':"price-clube-bistek price"})
+                valor_amigo_bistek = cerveja_Bistek.find('span',attrs={'class':"price-clube-bistek price"})   
 
-                # Limpeza do valor preço a vista bistek
+                if ():
+                                        
+                        # Limpeza do valor preço a vista bistek:
+                        valor_bistekBruto = valor_Bistek.text.strip().rstrip('\n').lstrip('\n').split()
+                        valor_bistekRefinado = valor_bistekBruto[2 : 4]
+                        valor_bistekFinal = (' '.join(valor_bistekRefinado))
+                        
+                        # limpeza do valor amigo bistek:
+                        valor_clube_Bistek_bruto = valor_amigo_bistek.text.strip().rstrip('\n').lstrip('\n')
+                        valor_clube_Bistek_refinado = valor_clube_Bistek_bruto
 
-                valor_bistekBruto = valor_Bistek.text.strip().rstrip('\n').lstrip('\n').split()
-                valor_bistekRefinado = valor_bistekBruto[2 : 4]
-                valor_bistekFinal = (' '.join(valor_bistekRefinado))
-
-                # limpeza do valor amigo bistek
-                valor_clube_Bistek_bruto = valor_amigo_bistek.text.strip().rstrip('\n').lstrip('\n')
-                valor_clube_Bistek_refinado = valor_clube_Bistek_bruto
-
-                lista_cerveja_lata_Bistek.append([produto_Bistek.text.strip().rstrip('\n').lstrip('\n') ,'   Valor a vista ' + valor_bistekFinal + '  Clube bistek '+ valor_clube_Bistek_refinado ]) 
-
-
-
-
-
-
-
+                        lista_cerveja_lata_Bistek.append([produto_Bistek.text.strip().rstrip('\n').lstrip('\n') ,'   Valor a vista ' + valor_bistekFinal + '  Clube bistek '+ valor_clube_Bistek_refinado ]) 
+                        ceva = pd.DataFrame(lista_cerveja_lata_Bistek, columns=[ 'Produto','Preco'])
+                        ceva.to_csv('bistek/energetico/monsterLataBistek.csv', index=False ) 
+                else:
+                                               
+                        # Limpeza do valor normal de prateleira:
+                        valo_normal_bistek_bruto = valo_normal_bistek.text.strip().rstrip('\n').lstrip('\n')
+                        valo_normal_bistek_refinado = valo_normal_bistek_bruto  
+                        lista_cerveja_lata_Bistek.append([produto_Bistek.text.strip().rstrip('\n').lstrip('\n') ,'   Valor a vista ' + valo_normal_bistek_refinado + '  Clube bistek '+ 'Indisponivel' ]) 
+                        ceva = pd.DataFrame(lista_cerveja_lata_Bistek, columns=[ 'Produto','Preco'])
+                        ceva.to_csv('bistek/energetico/monsterLataBistek.csv', index=False ) 
         
-        ceva = pd.DataFrame(lista_cerveja_lata_Bistek, columns=[ 'Produto','Preco'])
-
-        ceva.to_csv('bistek/energetico/monsterLataBistek.csv', index=False ) 
 
         df_Bistek = pd.read_csv("bistek/energetico/monsterLatabistek.csv")
         Bmonster473 = df_Bistek[df_Bistek.Produto=="Energético Monster Green 473ml"]
-
-
-
         ceval4 = pd.DataFrame(Bmonster473, columns=['Produto', 'Preco'])
         ceval4.to_csv('bistek/energetico/monsterBistek.csv', index=False)
 
