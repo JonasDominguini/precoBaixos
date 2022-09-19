@@ -22,7 +22,7 @@ def tota():
         cervejas_Bistek = site_Bistek.findAll('div', attrs={'class':"product-item-info"})
 
         for cerveja_Bistek in cervejas_Bistek:
-
+              
                 produto_Bistek = cerveja_Bistek.find('strong', attrs={'class':'product name product-item-name'})
                 valor_Bistek = cerveja_Bistek.find('span',attrs={'class':"special-price"})
                 valor_amigo_bistek = cerveja_Bistek.find('span',attrs={'class':"price-clube-bistek price"})
@@ -39,17 +39,24 @@ def tota():
 
                 lista_cerveja_lata_Bistek.append([produto_Bistek.text.strip().rstrip('\n').lstrip('\n') ,'   Valor a vista ' + valor_bistekFinal + '  Clube bistek '+ valor_clube_Bistek_refinado ]) 
 
+
+
+
+
+
+
+        
         ceva = pd.DataFrame(lista_cerveja_lata_Bistek, columns=[ 'Produto','Preco'])
 
-        ceva.to_csv('monsterLataBistek.csv', index=False ) 
+        ceva.to_csv('bistek/energetico/monsterLataBistek.csv', index=False ) 
 
-        df_Bistek = pd.read_csv("monsterLatabistek.csv")
+        df_Bistek = pd.read_csv("bistek/energetico/monsterLatabistek.csv")
         Bmonster473 = df_Bistek[df_Bistek.Produto=="Energético Monster Green 473ml"]
 
 
 
         ceval4 = pd.DataFrame(Bmonster473, columns=['Produto', 'Preco'])
-        ceval4.to_csv('monsterBistek.csv', index=False)
+        ceval4.to_csv('bistek/energetico/monsterBistek.csv', index=False)
 
         print(ceval4) 
 #======================================================================================================================#
@@ -86,8 +93,7 @@ def tota():
                 ceval1 = pd.DataFrame(Amonster473, columns=['Produto','Preco'])
                 ceval1.to_csv('monsterAngeloni.csv', index=False)
                 
-schedule.every(5).seconds.do(tota)
+schedule.every(10).seconds.do(tota)
 while 1:
     schedule.run_pending()
-    time.sleep(1)
-
+    time.sleep(10)

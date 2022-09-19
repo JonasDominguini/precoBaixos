@@ -14,12 +14,12 @@ bot = telebot.TeleBot(API_KEY)
 def Cerveja(mensagem):  
     print('alguém usou bhrama')
     
-    with open('bhramaBistek.csv') as fp:
+    with open('bistek/cerveja/bhramaBistek.csv') as fp:
         line = fp.readlines()    
         nw2 = (line[1])
         nw2b = ((nw2.replace('Â','')))
 
-    with open('bhramaAngeloni.csv') as fp:
+    with open('angeloni/cerveja/bhramaAngeloni.csv') as fp:
         line = fp.readlines()    
         nw1 = (line[1])      
 
@@ -38,11 +38,11 @@ def Cerveja(mensagem):
 
     print('alguém usou heineken')
 
-    with open('henikenAngeloni.csv') as fp:
+    with open('angeloni/cerveja/henikenAngeloni.csv') as fp:
         line = fp.readlines()    
         nw4 = (line[1])
 
-    with open('henikenBistek.csv') as fp: 
+    with open('bistek/cerveja/henikenBistek.csv') as fp: 
         line = fp.readlines()    
         nw5 = (line[1])
         nw5b = ((nw5.replace('Â','')))  
@@ -61,11 +61,11 @@ def Cerveja(mensagem):
 
     print('alguém usou Eisenbahn')
     
-    with open('EisenbahnAngeloni.csv') as fp:
+    with open('angeloni/cerveja/EisenbahnAngeloni.csv') as fp:
         line = fp.readlines()    
         nw6 = (line[1])
 
-    with open('EisenbahnBistek.csv') as fp: 
+    with open('bistek/cerveja/EisenbahnBistek.csv') as fp: 
         line = fp.readlines()    
         nw7 = (line[1])
         nw7b = ((nw7.replace('Â','')))

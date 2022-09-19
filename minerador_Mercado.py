@@ -30,12 +30,12 @@ def minerador():
                 lista_cerveja_lata.append([produto.text , '  Valor a vista:  R$ '+ valor_real.text + valor_centavos.text])
 
         ceva = pd.DataFrame(lista_cerveja_lata, columns=[ 'Produto','Preco'])
-        ceva.to_csv('cervejaLataAngeloni.csv')
+        ceva.to_csv('angeloni/cerveja/cervejaLataAngeloni.csv')
 
         print(produto.text) 
         print('Valor do produto: R$', valor_real.text,valor_centavos.text)
         print()
-        df = pd.read_csv("cervejaLataAngeloni.csv")
+        df = pd.read_csv("angeloni/cerveja/cervejaLataAngeloni.csv")
         AcervejaBhrama350 = df[df.Produto=="Cerveja Brahma Extra Lager Puro Malte 350ml Lata"]
         AcervejaSubZero350 = df[df.Produto=="Cerveja Antarctica Sub Zero Pilsen 350ml Lata"]
         AcervejaHeineken350 = df[df.Produto=="Cerveja Heineken Lata 350ml "]
@@ -46,13 +46,13 @@ def minerador():
 
         print(AcervejaEisenbahn350)
         ceval1 = pd.DataFrame(AcervejaBhrama350, columns=['Produto','Preco'])
-        ceval1.to_csv('bhramaAngeloni.csv', index=False)
+        ceval1.to_csv('angeloni/cerveja/bhramaAngeloni.csv', index=False)
 
         ceval2 = pd.DataFrame(AcervejaEisenbahn350, columns=['Produto','Preco'])
-        ceval2.to_csv('EisenbahnAngeloni.csv', index=False)
+        ceval2.to_csv('angeloni/cerveja/EisenbahnAngeloni.csv', index=False)
 
         ceval3 = pd.DataFrame(AcervejaHeineken350, columns=['Produto','Preco'])
-        ceval3.to_csv('henikenAngeloni.csv', index=False)
+        ceval3.to_csv('angeloni/cerveja/henikenAngeloni.csv', index=False)
 
         #===================================================================================================#
         #Bistek supermecado
@@ -77,9 +77,9 @@ def minerador():
 
         ceva = pd.DataFrame(lista_cerveja_lata_Bistek, columns=[ 'Produto','Preco'])
 
-        ceva.to_csv('cervejaLataBistek.csv', index=False ) 
+        ceva.to_csv('bistek/cerveja/cervejaLataBistek.csv', index=False ) 
 
-        df_Bistek = pd.read_csv("cervejaLatabistek.csv")
+        df_Bistek = pd.read_csv("bistek/cerveja/cervejaLatabistek.csv")
         BcervejaBhrama350 = df_Bistek[df_Bistek.Produto=="Cerveja Brahma Extra Lager Lata 350ml"]
         #BcervejaSubZero350 = df_Bistek[df_Bistek.Produto=="Cerveja Antarctica Subzero Lata 350ml"]
         BcervejaHeineken350 = df_Bistek[df_Bistek.Produto=="Cerveja Heineken Lata 350ml"]
@@ -90,15 +90,15 @@ def minerador():
 
 
         ceval4 = pd.DataFrame(BcervejaBhrama350, columns=['Produto','Preco'])
-        ceval4.to_csv('bhramaBistek.csv', index=False)
+        ceval4.to_csv('bistek/cerveja/bhramaBistek.csv', index=False)
 
         ceval5 = pd.DataFrame(BcervejaEisenbahn350, columns=['Produto','Preco'])
-        ceval5.to_csv('EisenbahnBistek.csv', index=False)
+        ceval5.to_csv('bistek/cerveja/EisenbahnBistek.csv', index=False)
 
         ceval6 = pd.DataFrame(BcervejaHeineken350, columns=['Produto','Preco'])
-        ceval6.to_csv('henikenBistek.csv', index=False)
+        ceval6.to_csv('bistek/cerveja/henikenBistek.csv', index=False)
         
-schedule.every(2).hours.do(minerador)
+schedule.every(10).seconds.do(minerador)
 while 1:
     schedule.run_pending()
-    time.sleep(120)
+    time.sleep(10)
