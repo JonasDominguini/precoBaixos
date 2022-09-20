@@ -9,9 +9,9 @@ import schedule
 import time
 
 
-def tota():
+def energetico():
         lista_cerveja_lata_Bistek = []
-        print('1 etapa')
+       
 
         response = requests.get('https://loja10.bistek.com.br/catalogsearch/result/?q=monster')
 
@@ -57,7 +57,6 @@ def tota():
         Bmonster473 = df_Bistek[df_Bistek.Produto=="Energético Monster Green 473ml"]
         ceval4 = pd.DataFrame(Bmonster473, columns=['Produto', 'Preco'])
         ceval4.to_csv('bistek/energetico/monsterBistek.csv', index=False)
-
         print(ceval4) 
 #======================================================================================================================#
 #Angeloni Monster
@@ -81,19 +80,17 @@ def tota():
                 lista_cerveja_lata.append([produto.text , '  Valor a vista:  R$ '+ valor_real.text + valor_centavos.text])
 
                 ceva = pd.DataFrame(lista_cerveja_lata, columns=[ 'Produto','Preco'])
-                ceva.to_csv('monsterLataAngeloni.csv', index=False)
+                ceva.to_csv('angeloni/energetico/monsterLataAngeloni.csv', index=False)
 
-                print(produto.text) 
-                print('Valor do produto: R$', valor_real.text,valor_centavos.text)
-                print()
-                df = pd.read_csv("monsterLataAngeloni.csv")
-                Amonster473 = df[df.Produto=="Energético Monster Energy Lata 473ml"]                
+        df_Angeloni = pd.read_csv("angeloni/energetico/monsterLataAngeloni.csv") 
+        Amonster473 = df_Angeloni[df_Angeloni.Produto=="Energético Monster Energy Lata 473ml"]  
 
-                print(Amonster473)
-                ceval1 = pd.DataFrame(Amonster473, columns=['Produto','Preco'])
-                ceval1.to_csv('monsterAngeloni.csv', index=False)
-                
-schedule.every(10).seconds.do(tota)
+        energetico_Angeloni = pd.DataFrame(Amonster473, columns=['Produto','Preco'])
+        energetico_Angeloni.to_csv('angeloni/energetico/monsterAngeloni.csv', index=False)
+        
+
+schedule.every(5).seconds.do(energetico)
 while 1:
     schedule.run_pending()
-    time.sleep(10)
+    time.sleep(1)
+        
