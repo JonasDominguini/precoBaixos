@@ -54,7 +54,7 @@ def minerador():
         ceval3 = pd.DataFrame(AcervejaHeineken350, columns=['Produto','Preco'])
         ceval3.to_csv('angeloni/cerveja/henikenAngeloni.csv', index=False)
 
-        #===================================================================================================#
+#===========================================================================================================================================================#
         #Bistek supermecado
 
         lista_cerveja_lata_Bistek = []
@@ -97,6 +97,60 @@ def minerador():
 
         ceval6 = pd.DataFrame(BcervejaHeineken350, columns=['Produto','Preco'])
         ceval6.to_csv('bistek/cerveja/henikenBistek.csv', index=False)
+
+
+
+#=====================================================================================================================================================================#
+        #Bistek supermecado Energético
+
+        lista_energetico_lata_Bistek = []
+       
+
+        response = requests.get('https://loja10.bistek.com.br/catalogsearch/result/?q=monster')
+
+                
+        content = response.content
+
+        site_Bistek = BeautifulSoup(content, 'html.parser')
+
+        cervejas_Bistek = site_Bistek.findAll('div', attrs={'class':"product-item-info"})
+
+        for cerveja_Bistek in cervejas_Bistek:
+              
+                produto_Bistek = cerveja_Bistek.find('strong', attrs={'class':'product name product-item-name'})
+                valo_normal_bistek = cerveja_Bistek.find('span',attrs={'class':"price"})
+                valor_Bistek = cerveja_Bistek.find('span',attrs={'class':"special-price"})
+                valor_amigo_bistek = cerveja_Bistek.find('span',attrs={'class':"price-clube-bistek price"})   
+
+                if ():
+                                        
+                        # Limpeza do valor preço a vista bistek:
+                        valor_bistekBruto = valor_Bistek.text.strip().rstrip('\n').lstrip('\n').split()
+                        valor_bistekRefinado = valor_bistekBruto[2 : 4]
+                        valor_bistekFinal = (' '.join(valor_bistekRefinado))
+                        
+                        # limpeza do valor amigo bistek:
+                        valor_clube_Bistek_bruto = valor_amigo_bistek.text.strip().rstrip('\n').lstrip('\n')
+                        valor_clube_Bistek_refinado = valor_clube_Bistek_bruto
+
+                        lista_energetico_lata_Bistek.append([produto_Bistek.text.strip().rstrip('\n').lstrip('\n') ,'   Valor a vista ' + valor_bistekFinal + '  Clube bistek '+ valor_clube_Bistek_refinado ]) 
+                        ceva = pd.DataFrame(lista_energetico_lata_Bistek, columns=[ 'Produto','Preco'])
+                        ceva.to_csv('bistek/energetico/monsterLataBistek.csv', index=False ) 
+                else:
+                                               
+                        # Limpeza do valor normal de prateleira:
+                        valo_normal_bistek_bruto = valo_normal_bistek.text.strip().rstrip('\n').lstrip('\n')
+                        valo_normal_bistek_refinado = valo_normal_bistek_bruto  
+                        lista_energetico_lata_Bistek.append([produto_Bistek.text.strip().rstrip('\n').lstrip('\n') ,'   Valor a vista ' + valo_normal_bistek_refinado + '  Clube bistek '+ 'Indisponivel' ]) 
+                        ceva = pd.DataFrame(lista_energetico_lata_Bistek, columns=[ 'Produto','Preco'])
+                        ceva.to_csv('bistek/energetico/monsterLataBistek.csv', index=False ) 
+        
+
+        df_Bistek = pd.read_csv("bistek/energetico/monsterLatabistek.csv")
+        Bmonster473 = df_Bistek[df_Bistek.Produto=="Energético Monster Green 473ml"]
+        ceval4 = pd.DataFrame(Bmonster473, columns=['Produto', 'Preco'])
+        ceval4.to_csv('bistek/energetico/monsterBistek.csv', index=False)
+        print(ceval4) 
         
 schedule.every(10).seconds.do(minerador)
 while 1:
