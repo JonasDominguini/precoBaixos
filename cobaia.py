@@ -10,7 +10,7 @@ import time
 
 
 def energetico():
-        lista_cerveja_lata_Bistek = []
+        lista_energetico_lata_Bistek = []
        
 
         response = requests.get('https://loja10.bistek.com.br/catalogsearch/result/?q=monster')
@@ -40,16 +40,16 @@ def energetico():
                         valor_clube_Bistek_bruto = valor_amigo_bistek.text.strip().rstrip('\n').lstrip('\n')
                         valor_clube_Bistek_refinado = valor_clube_Bistek_bruto
 
-                        lista_cerveja_lata_Bistek.append([produto_Bistek.text.strip().rstrip('\n').lstrip('\n') ,'   Valor a vista ' + valor_bistekFinal + '  Clube bistek '+ valor_clube_Bistek_refinado ]) 
-                        ceva = pd.DataFrame(lista_cerveja_lata_Bistek, columns=[ 'Produto','Preco'])
+                        lista_energetico_lata_Bistek.append([produto_Bistek.text.strip().rstrip('\n').lstrip('\n') ,'   Valor a vista ' + valor_bistekFinal + '  Clube bistek '+ valor_clube_Bistek_refinado ]) 
+                        ceva = pd.DataFrame(lista_energetico_lata_Bistek, columns=[ 'Produto','Preco'])
                         ceva.to_csv('bistek/energetico/monsterLataBistek.csv', index=False ) 
                 else:
                                                
                         # Limpeza do valor normal de prateleira:
                         valo_normal_bistek_bruto = valo_normal_bistek.text.strip().rstrip('\n').lstrip('\n')
                         valo_normal_bistek_refinado = valo_normal_bistek_bruto  
-                        lista_cerveja_lata_Bistek.append([produto_Bistek.text.strip().rstrip('\n').lstrip('\n') ,'   Valor a vista ' + valo_normal_bistek_refinado + '  Clube bistek '+ 'Indisponivel' ]) 
-                        ceva = pd.DataFrame(lista_cerveja_lata_Bistek, columns=[ 'Produto','Preco'])
+                        lista_energetico_lata_Bistek.append([produto_Bistek.text.strip().rstrip('\n').lstrip('\n') ,'   Valor a vista ' + valo_normal_bistek_refinado + '  Clube bistek '+ 'Indisponivel' ]) 
+                        ceva = pd.DataFrame(lista_energetico_lata_Bistek, columns=[ 'Produto','Preco'])
                         ceva.to_csv('bistek/energetico/monsterLataBistek.csv', index=False ) 
         
 
