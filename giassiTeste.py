@@ -5,6 +5,8 @@ import schedule
 import time
 import requests
 
+# Outra coisa sem resolver
+
 response = requests.get('https://www.giassi.com.br/monster?_q=monster&map=ft')
 
                         
