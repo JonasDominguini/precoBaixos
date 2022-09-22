@@ -49,6 +49,7 @@ class Page:
 
 #======================================================================================================#
 # Giassi energetico monster
+
 class Page1:
         def __init__(self, driver):
                 self.driver = driver
@@ -86,4 +87,43 @@ class Page1:
         energetico_Giassi1.to_csv('giassi/energetico/monsterGiassi.csv', index=False)
         webdriver.close()
 
+#======================================================================================================#
+# Giassi cerveja
+
+class Page1:
+        def __init__(self, driver):
+                self.driver = driver
+
+
+        lista_cerveja_Giassi = [] 
+
+        chromedrive_path = 'C:\precoBaixoDesenv\chromedriver.exe'
+        webdriver = webdriver.Chrome(executable_path=chromedrive_path)
+        sleep(3) 
+        webdriver.get('https://www.giassi.com.br/cerveja?_q=cerveja&map=ft')
+        sleep(3)        
+
+        content = webdriver.page_source
+        site = bs(content, 'html.parser')  
+      
+        cervejas_Giassi = site.findAll('a', attrs={'class':'vtex-product-summary-2-x-clearLink h-100 flex flex-column'})
+        for cerveja_Giassi in cervejas_Giassi:
+                
+                produto_Giassi = cerveja_Giassi.find('span', attrs={'class':'vtex-product-summary-2-x-productBrand vtex-product-summary-2-x-brandName t-body'})
+                valo_normal_Giassi = cerveja_Giassi.find('p',attrs={'class':"giassi-apps-custom-0-x-priceUnit"})
+
+                produto_final = produto_Giassi.text.strip().rstrip('\n').lstrip('\n')  
+                valor_final = valo_normal_Giassi.text.strip().rstrip('\n').lstrip('\n')
+
+                lista_cerveja_Giassi.append([produto_final, 'Valor: ' +  valor_final ])
+        
+        cerva1 = pd.DataFrame(lista_cerveja_Giassi, columns=[ 'Produto','Preco'])
+        cerva1.to_csv('giassi/cerveja/cervejaLataGiassi.csv', index=False )
+
+        df = pd.read_csv("giassi/cerveja/cervejaLataGiassi.csv")
+        Giassi_Spaten350 = df[df.Produto=="Cerveja Munich Helles Puro Malte Spaten Lata 350ml"]
+
+        cerveja_Giassi_Spaten = pd.DataFrame(Giassi_Spaten350, columns=['Produto','Preco'])
+        cerveja_Giassi_Spaten.to_csv('giassi/cerveja/spatenLataGiassi.csv', index=False)
+        webdriver.close()
 
