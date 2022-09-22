@@ -38,12 +38,12 @@ class Page:
                 lista_energetico_Althoff.append([produto_final, 'Valor R$: ' +  valor_final ])
         
         energetico = pd.DataFrame(lista_energetico_Althoff, columns=[ 'Produto','Preco'])
-        energetico.to_csv('althoff/energetico/energeticoLataBistek.csv', index=False )
+        energetico.to_csv('althoff/energetico/energeticoLataAlthoff.csv', index=False )
 
-        df = pd.read_csv("althoff/energetico/energeticoLataBistek.csv")
+        df = pd.read_csv("althoff/energetico/energeticoLataAlthoff.csv")
         Althoff_Energetico473 = df[df.Produto=="bebida energética monster green lata 473ml"]
 
         energetico_Althoff = pd.DataFrame(Althoff_Energetico473, columns=['Produto','Preco'])
-        energetico_Althoff.to_csv('althoff/energetico/energeticoBistek.csv', index=False)
+        energetico_Althoff.to_csv('althoff/energetico/monsterAlthoff.csv', index=False)
 
 
