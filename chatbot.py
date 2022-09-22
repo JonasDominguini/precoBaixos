@@ -86,15 +86,18 @@ def Monster(mensagem):
 
     print('alguém usou Monster')
 
-    with open('monsterBistek.csv') as fp: 
+    with open('bistek/energetico/monsterBistek.csv') as fp: 
         line = fp.readlines()    
         nw9 = (line[1])
         nw9b = ((nw9.replace('Â','')))
         nw9c = ((nw9b))    
 
-    with open('monsterAngeloni.csv') as fp:
+    with open('angeloni/energetico/monsterAngeloni.csv') as fp:
         line = fp.readlines()    
         nw8 = (line[1]) 
+    with open('althoff/energetico/monsterAlthoff.csv') as fp:
+        line = fp.readlines()    
+        nw10 = (line[1]) 
 
 
     bot.send_message(mensagem.chat.id,' Supermercado Angeloni:') 
@@ -102,6 +105,9 @@ def Monster(mensagem):
     
     bot.send_message(mensagem.chat.id,' Supermercado Bistek:') 
     bot.send_message(mensagem.chat.id, nw9c)
+
+    bot.send_message(mensagem.chat.id,' Supermercado Althoff:') 
+    bot.send_message(mensagem.chat.id, nw10)
 
 #====================================================================================#
 
