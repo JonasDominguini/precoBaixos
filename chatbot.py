@@ -69,12 +69,20 @@ def Cerveja(mensagem):
         line = fp.readlines()    
         nw7 = (line[1])
         nw7b = ((nw7.replace('Â','')))
+
+    with open('giassi/cerveja/EisenbahnLataGiassi.csv') as fp: 
+        line = fp.readlines()    
+        elg = (line[1])
+        elgb = ((elg.replace('Â','')))
      
     bot.send_message(mensagem.chat.id,' A Eisenbahn no supermercado Angeloni:') 
     bot.send_message(mensagem.chat.id, nw6)
     
     bot.send_message(mensagem.chat.id,' A Eisenbahn no supermercado Bistek:') 
     bot.send_message(mensagem.chat.id, nw7b)
+
+    bot.send_message(mensagem.chat.id,' A Eisenbahn no supermercado Giassi:') 
+    bot.send_message(mensagem.chat.id, elgb)
 
 
 

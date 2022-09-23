@@ -122,8 +122,20 @@ class Page1:
 
         df = pd.read_csv("giassi/cerveja/cervejaLataGiassi.csv")
         Giassi_Spaten350 = df[df.Produto=="Cerveja Munich Helles Puro Malte Spaten Lata 350ml"]
+        Giassi_heniken350 = df[df.Produto=="Cerveja Lager Premium Puro Malte Heineken Lata 350ml"]
+        Giassi_Eisenbahn350 = df[df.Produto=="Cerveja Pilsen Puro Malte Eisenbahn Lata 350ml"]
 
         cerveja_Giassi_Spaten = pd.DataFrame(Giassi_Spaten350, columns=['Produto','Preco'])
         cerveja_Giassi_Spaten.to_csv('giassi/cerveja/spatenLataGiassi.csv', index=False)
+
+        cerveja_Giassi_heniken = pd.DataFrame(Giassi_heniken350, columns=['Produto','Preco'])
+        cerveja_Giassi_heniken.to_csv('giassi/cerveja/henikenLataGiassi.csv', index=False)
+
+        cerveja_Giassi_Eisenbahn = pd.DataFrame(Giassi_Eisenbahn350, columns=['Produto','Preco'])
+        cerveja_Giassi_Eisenbahn.to_csv('giassi/cerveja/EisenbahnLataGiassi.csv', index=False)
+
+        
+
+
         webdriver.close()
 
