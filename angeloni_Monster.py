@@ -36,13 +36,13 @@ def minerador():
                 ceva.to_csv('angeloni/energetico/monsterLataAngeloni.csv', index=False)
 
                 df_Angeloni = pd.read_csv("angeloni/energetico/monsterLataAngeloni.csv") 
-                Amonster473 = df_Angeloni[df_Angeloni.Produto=="Energético Monster Energy Lata 473ml"]  
+                Amonster473 = df_Angeloni[df_Angeloni.Produto=="Energético Monster Ultra 473ml"]  
 
                 energetico_Angeloni = pd.DataFrame(Amonster473, columns=['Produto','Preco'])
                 energetico_Angeloni.to_csv('angeloni/energetico/monsterAngeloni.csv', index=False)
 
-schedule.every(5).seconds.do(minerador)
-while 1:
-    schedule.run_pending()
-    time.sleep(1)
+#schedule.every(5).seconds.do(minerador)
+#while 1:
+   # schedule.run_pending()
+   # time.sleep(1)
 
