@@ -50,7 +50,7 @@ class Page:
 #======================================================================================================#
 # Giassi energetico monster
 
-class Page1:
+class PageGiassi:
         def __init__(self, driver):
                 self.driver = driver
 
@@ -90,7 +90,7 @@ class Page1:
 #======================================================================================================#
 # Giassi cerveja
 
-class Page1:
+class PageGiassiCerveja:
         def __init__(self, driver):
                 self.driver = driver
 
@@ -133,9 +133,7 @@ class Page1:
 
         cerveja_Giassi_Eisenbahn = pd.DataFrame(Giassi_Eisenbahn350, columns=['Produto','Preco'])
         cerveja_Giassi_Eisenbahn.to_csv('giassi/cerveja/EisenbahnLataGiassi.csv', index=False)
+        webdriver.close()
 
         
-
-
-        webdriver.close()
 
