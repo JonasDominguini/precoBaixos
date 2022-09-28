@@ -53,8 +53,6 @@ class Page:
 class PageGiassi:
         def __init__(self, driver):
                 self.driver = driver
-
-
         lista_energetico_Giassi = [] 
 
         chromedrive_path = 'C:\precoBaixoDesenv\chromedriver.exe'
