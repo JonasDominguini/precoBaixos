@@ -123,6 +123,38 @@ class PageGiassiCerveja:
         Giassi_heniken350 = df[df.Produto=="Cerveja Lager Premium Puro Malte Heineken Lata 350ml"]
         Giassi_Eisenbahn350 = df[df.Produto=="Cerveja Pilsen Puro Malte Eisenbahn Lata 350ml"]
 
+        Giassi_Skol350 = df[df.Produto=='Cerveja Skol Pilsen Lata 350ml'] 
+        Giassi_Skol473 = df[df.Produto=="Cerveja Skol Pilsen Lata 473ml"]
+        cerveja_Giassi_Spaten = pd.DataFrame(Giassi_Spaten350, columns=['Produto','Preco'])
+        cerveja_Giassi_Spaten.to_csv('giassi/cerveja/spatenLataGiassi.csv', index=False)
+
+
+
+        #Cerveja Caracu Escura 350ml Lata
+        #Cerveja Brahma Malzbier 350ml Lata
+        #Cerveja Brahma Zero 350ml Lata
+        #Cerveja Antarctica Sub Zero Pilsen 473ml Lata
+        #Cerveja Brahma Extra Lager Puro Malte 350ml Lata
+        #Cerveja Antarctica Sub Zero Pilsen 350ml Lata
+        #Cerveja Brahma Chopp Pilsen 473ml Lata
+        #Cerveja Budweiser American Lager 473ml Lata
+        #Cerveja Kaiser Pilsen Lata 473ml
+        #Cerveja Stella Artois Puro Malte 350ml Lata
+        #Cerveja Heineken Zero Lata 350ml 
+        #Cerveja Kaiser Pilsen Lata 350ml
+        #Cerveja Schornstein Ipa Lata 473ml
+        #Cerveja Amstel Puro Malte Lata 473ml
+        #Cerveja Heineken Premium Puro Malte Lata 473ml
+        #Cerveja Eisenbahn American Ipa Puro Malte Lata 350ml
+        #Cerveja Budweiser American Lager 350ml Lata
+        #Cerveja Bohemia Puro Malte Lata 473ml
+        #Cerveja Amstel Puro Malte Lata 350ml
+        #Cerveja Eisenbahn Pale Ale Puro Malte Lata 350ml
+        #Cerveja Baden Baden Ipa Lata 350ml
+        #Cerveja Baden Baden Pilsen Cristal Lata 350ml
+        #Cerveja Eisenbahn Pilsen Puro Malte Lata 350ml
+
+
         cerveja_Giassi_Spaten = pd.DataFrame(Giassi_Spaten350, columns=['Produto','Preco'])
         cerveja_Giassi_Spaten.to_csv('giassi/cerveja/spatenLataGiassi.csv', index=False)
 
@@ -131,6 +163,10 @@ class PageGiassiCerveja:
 
         cerveja_Giassi_Eisenbahn = pd.DataFrame(Giassi_Eisenbahn350, columns=['Produto','Preco'])
         cerveja_Giassi_Eisenbahn.to_csv('giassi/cerveja/EisenbahnLataGiassi.csv', index=False)
+
+        cerveja_Giassi_Eisenbahn = pd.DataFrame(Giassi_Eisenbahn350, columns=['Produto','Preco'])
+        cerveja_Giassi_Eisenbahn.to_csv('giassi/cerveja/EisenbahnLataGiassi.csv', index=False)
+
         webdriver.close()
 
         
