@@ -142,6 +142,10 @@ class PageGiassiCerveja:
         cerveja_Giassi_heniken473 = pd.DataFrame(Giassi_heniken473, columns=['Produto','Preco'])
         cerveja_Giassi_heniken473.to_csv('giassi/cerveja/heniken473LataGiassi.csv', index=False)
 
+        Giassi_ZeroHeineken350 = df[df.Produto=="Cerveja Lager Premium Puro Malte Zero Álcool Heineken Lata 350ml"]
+        cerveja_Giassi_ZeroHeineken350 = pd.DataFrame(Giassi_ZeroHeineken350, columns=['Produto','Preco'])
+        cerveja_Giassi_ZeroHeineken350.to_csv('giassi/cerveja/ZeroHeineken350LataGiassi.csv', index=False)
+
         Giassi_antartica350 = df[df.Produto=="Cerveja Pilsen Antarctica Original Lata 350ml"]
         cerveja_Giassi_antartica350 = pd.DataFrame(Giassi_antartica350, columns=['Produto','Preco'])
         cerveja_Giassi_antartica350.to_csv('giassi/cerveja/antartica350LataGiassi.csv', index=False)    
@@ -152,7 +156,36 @@ class PageGiassiCerveja:
 
         Giassi_Amstel_269_Sem_Gluten = df[df.Produto=="Cerveja Lager Puro Malte sem Glúten Amstel Ultra Lata 269ml"]
         cerveja_Giassi_Amstel_269_Sem_Gluten = pd.DataFrame(Giassi_Amstel_269_Sem_Gluten, columns=['Produto','Preco'])
-        cerveja_Giassi_Amstel_269_Sem_Gluten.to_csv('giassi/cerveja/PilsnerBra350LataGiassi.csv', index=False)
+        cerveja_Giassi_Amstel_269_Sem_Gluten.to_csv('giassi/cerveja/Amstel_269_Sem_GlutenLataGiassi.csv', index=False)
+
+        Giassi_TherezopolisGold350 = df[df.Produto=="Cerveja Lager Puro Malte Gold Therezópolis Lata 350ml"]
+        cerveja_Giassi_TherezopolisGold350 = pd.DataFrame(Giassi_TherezopolisGold350, columns=['Produto','Preco'])
+        cerveja_Giassi_TherezopolisGold350.to_csv('giassi/cerveja/TherezopolisGold350LataGiassi.csv', index=False)
+
+        Giassi_Baly350 = df[df.Produto=="Cerveja Pilsen Puro Malte Baly Lata 350ml"]
+        cerveja_Giassi_Baly350 = pd.DataFrame(Giassi_Baly350, columns=['Produto','Preco'])
+        cerveja_Giassi_Baly350.to_csv('giassi/cerveja/Baly350LataGiassi.csv', index=False) 
+
+        Giassi_Bohemia350 = df[df.Produto=="Cerveja Lager Puro Malte Bohemia Lata 350ml"]
+        cerveja_Giassi_Bohemia350 = pd.DataFrame(Giassi_Bohemia350, columns=['Produto','Preco'])
+        cerveja_Giassi_Bohemia350.to_csv('giassi/cerveja/Bohemia350LataGiassi.csv', index=False)  
+
+        Giassi_Dado350 = df[df.Produto=="Cerveja Lager Puro Malte Dado Bier Lata 350ml"]
+        cerveja_Giassi_Dado350 = pd.DataFrame(Giassi_Dado350, columns=['Produto','Preco'])
+        cerveja_Giassi_Dado350.to_csv('giassi/cerveja/Dado350LataGiassi.csv', index=False) 
+
+        Giassi_Opa350 = df[df.Produto=="Cerveja Pilsen Puro Malte Opa Bier Lata 350ml"]
+        cerveja_Giassi_Opa350 = pd.DataFrame(Giassi_Opa350, columns=['Produto','Preco'])
+        cerveja_Giassi_Opa350.to_csv('giassi/cerveja/Opa350LataGiassi.csv', index=False)
+
+        Giassi_Hoegaarden330 = df[df.Produto=="Cerveja Witbier Hoegaarden Garrafa 330ml"]
+        cerveja_Giassi_Hoegaarden330 = pd.DataFrame(Giassi_Hoegaarden330, columns=['Produto','Preco'])
+        cerveja_Giassi_Hoegaarden330.to_csv('giassi/cerveja/Hoegaarden330LataGiassi.csv', index=False)    
+        
+        
+        
+        
+        #Cerveja Lager Brahma Chopp Lata 473ml
         
 
         cerveja_Giassi_Spaten = pd.DataFrame(Giassi_Spaten350, columns=['Produto','Preco'])
