@@ -4,11 +4,13 @@ from time import sleep
 from selenium.webdriver.common.by import By
 import pandas as pd
 
+
 class Page:
         def __init__(self, driver):
                 self.driver = driver
 
         lista_vinho_Giassi = [] 
+        
 
         chromedrive_path = 'C:\precoBaixoDesenv\chromedriver.exe'
         webdriver = webdriver.Chrome(executable_path=chromedrive_path)
