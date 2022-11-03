@@ -180,10 +180,25 @@ class PageGiassiCerveja:
 
         Giassi_Hoegaarden330 = df[df.Produto=="Cerveja Witbier Hoegaarden Garrafa 330ml"]
         cerveja_Giassi_Hoegaarden330 = pd.DataFrame(Giassi_Hoegaarden330, columns=['Produto','Preco'])
-        cerveja_Giassi_Hoegaarden330.to_csv('giassi/cerveja/Hoegaarden330LataGiassi.csv', index=False)    
+        cerveja_Giassi_Hoegaarden330.to_csv('giassi/cerveja/Hoegaarden330LataGiassi.csv', index=False)
+
+        Giassi_Lagunitas355 = df[df.Produto=="Cerveja IPA Lagunitas Garrafa 355ml"]
+        cerveja_Giassi_Lagunitas355 = pd.DataFrame(Giassi_Lagunitas355, columns=['Produto','Preco'])
+        cerveja_Giassi_Lagunitas355.to_csv('giassi/cerveja/Lagunitas355LataGiassi.csv', index=False)
+
+        Giassi_Coruja350 = df[df.Produto=="Cerveja Lager Puro Malte Coruja Lata 350ml"]
+        cerveja_Giassi_Coruja350 = pd.DataFrame(Giassi_Coruja350, columns=['Produto','Preco'])
+        cerveja_Giassi_Coruja350.to_csv('giassi/cerveja/Coruja350LataGiassi.csv', index=False)
+
+        Giassi_Stella350 = df[df.Produto=="Cerveja Lager Premium Stella Artois Lata 350ml"]
+        cerveja_Giassi_Stella350 = pd.DataFrame(Giassi_Stella350, columns=['Produto','Preco'])
+        cerveja_Giassi_Stella350.to_csv('giassi/cerveja/Stella350LataGiassi.csv', index=False)
+
+
+
         
-        
-        
+        #Cerveja Lager Brahma Chopp Lata 350ml
+        #parado na 34.
         
         #Cerveja Lager Brahma Chopp Lata 473ml
         
