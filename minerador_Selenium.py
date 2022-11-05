@@ -47,6 +47,11 @@ class Page:
         energetico_Althoff.to_csv('althoff/energetico/monsterAlthoff.csv', index=False)
         sleep(3)
 
+
+
+
+
+
 #======================================================================================================#
 # Giassi energetico monster
 
@@ -152,7 +157,12 @@ class PageGiassiCerveja:
 
         Giassi_PilsnerBra350 = df[df.Produto=="Cerveja Pilsner Duplo Malte Brahma Lata 350ml"]
         cerveja_Giassi_PilsnerBra350 = pd.DataFrame(Giassi_antartica350, columns=['Produto','Preco'])
-        cerveja_Giassi_PilsnerBra350.to_csv('giassi/cerveja/PilsnerBra350LataGiassi.csv', index=False)  
+        cerveja_Giassi_PilsnerBra350.to_csv('giassi/cerveja/PilsnerBra350LataGiassi.csv', index=False) 
+
+        
+        Giassi_Amstel473 = df[df.Produto=="Cerveja Lager Puro Malte Amstel Lata 473ml"]
+        cerveja_Giassi_Amstel473 = pd.DataFrame(Giassi_Amstel473, columns=['Produto','Preco'])
+        cerveja_Giassi_Amstel473.to_csv('giassi/cerveja/Amstel473LataGiassi.csv', index=False)
 
         Giassi_Amstel_269_Sem_Gluten = df[df.Produto=="Cerveja Lager Puro Malte sem Glúten Amstel Ultra Lata 269ml"]
         cerveja_Giassi_Amstel_269_Sem_Gluten = pd.DataFrame(Giassi_Amstel_269_Sem_Gluten, columns=['Produto','Preco'])
@@ -192,16 +202,11 @@ class PageGiassiCerveja:
 
         Giassi_Stella350 = df[df.Produto=="Cerveja Lager Premium Stella Artois Lata 350ml"]
         cerveja_Giassi_Stella350 = pd.DataFrame(Giassi_Stella350, columns=['Produto','Preco'])
-        cerveja_Giassi_Stella350.to_csv('giassi/cerveja/Stella350LataGiassi.csv', index=False)
+        cerveja_Giassi_Stella350.to_csv('giassi/cerveja/Stella350LataGiassi.csv', index=False)        
 
-
-
-        
-        #Cerveja Lager Brahma Chopp Lata 350ml
-        #parado na 34.
-        
-        #Cerveja Lager Brahma Chopp Lata 473ml
-        
+        Giassi_Tiger350 = df[df.Produto=="Cerveja Puro Malte Crystal Tiger Lata 350ml"]
+        cerveja_Giassi_Tiger350 = pd.DataFrame(Giassi_Tiger350, columns=['Produto','Preco'])
+        cerveja_Giassi_Tiger350.to_csv('giassi/cerveja/Tiger350LataGiassi.csv', index=False)       
 
         cerveja_Giassi_Spaten = pd.DataFrame(Giassi_Spaten350, columns=['Produto','Preco'])
         cerveja_Giassi_Spaten.to_csv('giassi/cerveja/spatenLataGiassi.csv', index=False)
